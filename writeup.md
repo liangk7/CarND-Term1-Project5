@@ -17,12 +17,51 @@ The goals / steps of this project are the following:
 #### Sources 
 Udacity SDC Nanodegree: [CarND-Vehicle-Detection-P5](https://github.com/udacity/CarND-Vehicle-Detection)
 
----
 
+---
 
 ## Writeup / README
 
-This is the writeup for my Udacity Self-Driving Car Nanodegree Term 1 [Project 5 submission]() in accordance with the [rubric guidelines](https://review.udacity.com/#!/rubrics/571/view)
+This is the writeup for my Udacity Self-Driving Car Nanodegree Term 1 [Project 5 submission]() in accordance with the [rubric guidelines](https://review.udacity.com/#!/rubrics/513/view)
 
+
+### Histogram of Oriented Gradients (HOG)
+
+#### 1. HOG feature extraction
+
+![alt text][image]
+
+#### 2. Image classifier
+
+![alt text][image]
+
+
+### Sliding Window Search
+
+#### 1. Selection of scales and window overlap
+
+![alt text][image]
+
+#### 2. Pipeline and classifier optimization
+
+![alt text][image]
+
+
+### Video Implementation
+
+#### 1. Final video output
+
+![alt text][image]
+
+#### 2. Filtering out false positives ad combining overlapping boxes
+
+![alt text][image]
+
+
+---
+
+### Discussion
+
+#### 1. Implementation problems and pipeline shortcomings
 
 
