@@ -65,3 +65,5 @@ This is the writeup for my Udacity Self-Driving Car Nanodegree Term 1 [Project 5
 #### 1. Implementation problems and pipeline shortcomings
 
 
+#### 2. Future implementation and insights
+
