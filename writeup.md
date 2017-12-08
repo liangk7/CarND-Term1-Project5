@@ -11,8 +11,22 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/???.png "[title]"
-[image2]: ./output_images/???.png "[title]"
+[image1]: ./output_images/fig1_classData.png "[title]"
+[image2]: ./output_images/fig2.1_HOG.png "[title]"
+[image3]: ./output_images/fig2.2-1_HOGsample.png "[title]"
+[image4]: ./output_images/fig2.2-1_HOGcspace.png "[title]"
+[image5]: ./output_images/fig2.3-1_HOGsample.png "[title]"
+[image6]: ./output_images/fig2.3-2_HOGorient.png "[title]"
+[image7]: ./output_images/fig2.4-1_HOGsample.png "[title]"
+[image8]: ./output_images/fig2.4-2_HOGppc.png "[title]"
+[image9]: ./output_images/fig2.5-1_HOGsample.png "[title]"
+[image10]: ./output_images/fig2.5-2_HOGcpb.png "[title]"
+[image11]: ./output_images/fig3.1_windows.png "[title]"
+[image12]: ./output_images/fig3.2_carsBoxes.png "[title]"
+[image13]: ./output_images/fig4.1_heatmap.png "[title]"
+[image14]: ./output_images/fig4.2_threshmap.png "[title]"
+[image15]: ./output_images/fig4.3_carsDetected.png "[title]"
+[image16]: ./output_images/fig5_imagesCarsDetected.png "[title]"
 
 #### Sources 
 Udacity SDC Nanodegree: [CarND-Vehicle-Detection-P5](https://github.com/udacity/CarND-Vehicle-Detection)
