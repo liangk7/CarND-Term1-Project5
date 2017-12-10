@@ -52,23 +52,29 @@ The first step in this project is to convert the datasamples into HOG features w
 ![alt text][image2]
 
 By observing the following colorspaces, we can select the best option:
-* RGB
-* HLS
-* LUV
-* HLS
-* YUV - moving forward with this option
-* YCrCb
+* RGB, HLS, LUV, HLS, **YUV**, YCrCb
+Let's move forward with *YUV*
 
 ![alt text][image3] 
 ![alt text][image4]
 
-
+Next, taking a look at the number of orientations:
+* 4, **8**, 12, 16
+Intuitively, the greater number of `orient` seems to refine our results. But computationally, 8 orientations seems to perform sufficiently.
 
 ![alt text][image5] 
 ![alt text][image6]
 
+Moving forward to the number of pixels per cell:
+* 2, **4**, 8
+The lowest `pix_per_cell` value yields a more accurate HOG feature image. But for computation purposes, 4 pixels per cell prove optimal.
+
 ![alt text][image7] 
 ![alt text][image8]
+
+Lastly, the number of cells per block:
+* **2**, 4, 6, 8
+The `cell_per_block` feature doesn't appear to have significant impact in the results, so I went along with 2.
 
 ![alt text][image9] 
 ![alt text][image10]
