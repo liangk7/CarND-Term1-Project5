@@ -43,11 +43,36 @@ This is the writeup for my Udacity Self-Driving Car Nanodegree Term 1 [Project 5
 
 #### 1. HOG feature extraction
 
+The first step in this project is to convert the datasamples into HOG features with the `hog` method (part of the `skimage` library). Using a custom function `get_hog_features` we can view image results and test parameters such as:
+* colorspace
+* the number of orientations
+* the number of pixels per cell
+* the number of cells per block
+
 ![alt text][image2]
-![alt text][image3] ![alt text][image4]
-![alt text][image5] ![alt text][image6]
-![alt text][image7] ![alt text][image8]
-![alt text][image9] ![alt text][image10]
+
+By observing the following colorspaces, we can select the best option:
+* RGB
+* HLS
+* LUV
+* HLS
+* YUV - moving forward with this option
+* YCrCb
+
+![alt text][image3] 
+![alt text][image4]
+
+
+
+![alt text][image5] 
+![alt text][image6]
+
+![alt text][image7] 
+![alt text][image8]
+
+![alt text][image9] 
+![alt text][image10]
+
 
 #### 2. Image classifier
 
