@@ -52,29 +52,29 @@ The first step in this project is to convert the datasamples into HOG features w
 ![alt text][image2]
 
 By observing the following colorspaces, we can select the best option:
-* RGB, HLS, LUV, HLS, **YUV**, YCrCb
-Let's move forward with *YUV*
+* RGB, HLS, LUV, HLS, YUV, YCrCb
+Let's move forward with **YUV**
 
 ![alt text][image3] 
 ![alt text][image4]
 
 Next, taking a look at the number of orientations:
-* 4, **8**, 12, 16
-Intuitively, the greater number of `orient` seems to refine our results. But computationally, 8 orientations seems to perform sufficiently.
+* 4, 8, 12, 16
+Intuitively, the greater number of `orient` seems to refine our results. But computationally, **8** orientations seems to perform sufficiently.
 
 ![alt text][image5] 
 ![alt text][image6]
 
 Moving forward to the number of pixels per cell:
-* 2, **4**, 8
-The lowest `pix_per_cell` value yields a more accurate HOG feature image. But for computation purposes, 4 pixels per cell prove optimal.
+* 2, 4, 8
+The lowest `pix_per_cell` value yields a more accurate HOG feature image. But for computation purposes, **4** pixels per cell prove optimal.
 
 ![alt text][image7] 
 ![alt text][image8]
 
 Lastly, the number of cells per block:
-* **2**, 4, 6, 8
-The `cell_per_block` feature doesn't appear to have significant impact in the results, so I went along with 2.
+* 2, 4, 6, 8
+The `cell_per_block` feature doesn't appear to have significant impact in the results, so I went along with **2**.
 
 ![alt text][image9] 
 ![alt text][image10]
@@ -90,8 +90,8 @@ With the `vehicles` and `non-vehicles` dataset referenced in the CarND-Vehicle-D
 
 #### 1. Selection of scales and window overlap
 By looking at the provided sample images, we can make inference on relative car sizes and locations. Taking image patterns into consideration (assuming that the camera positioning and road height are constant), I used the following parameters:
-* box sizes: (64, 64), (80, 80), (96, 96), (112, 112)
-* overlap: (0.3, 0)
+* box sizes (x, y): (64, 64), (80, 80), (96, 96), (112, 112)
+* overlap (x, y): (0.3, 0)
 
 ![alt text][image11]
 
@@ -103,10 +103,24 @@ The overall vehicle detection pipeline is as follows:
 * labels to identify object shapes
 * boxes appended to original image
 
+The `find_cars` utilizes the box parameters determined in the previous section, to make a classification prediction on the HOG features of the boxed pixels in the provided image. It is evident that overlapping boxes allow us to clearly pinpoint likely car objects, but too much of an overlap may also result in more false positives. Thus, I resorted to an overlap of `0` in the `y` direction, so error propagations would be limited to the `x` direction and also be less likely to develop with overlaps of bigger boxes.
+
 ![alt text][image12]
+
+The `add_heat` function takes each of the boxes (classified as *cars* by the `find_cars` function) and appends them to a blank image space to depict the likelihood of cars (in the form of heat intensity).
+
 ![alt text][image13]
+
+To reduce the number false positives, the `apply_threshold` function reducts the intensity of classified cars. This effectively eliminates misclassified objects.
+
 ![alt text][image14]
+
+After removing false positives, the use of the `labels` function (part of the `scipy` library) allows us to isolate the object boxes to redraw onto the raw image.
+
 ![alt text][image15]
+
+Finally, we can examine the pipeline results on the original image. 
+
 ![alt text][image16]
 
 
