@@ -81,6 +81,7 @@ The `cell_per_block` feature doesn't appear to have significant impact in the re
 
 
 #### 2. Image classifier
+With the `vehicles` and `non-vehicles` dataset referenced in the CarND-Vehicle-Detection-P5 [github README](https://github.com/udacity/CarND-Vehicle-Detection), we can use the `get_hog_features` function to create an SVM model for classifying the images.
 
 ![alt text][image1]
 
@@ -88,10 +89,19 @@ The `cell_per_block` feature doesn't appear to have significant impact in the re
 ### Sliding Window Search
 
 #### 1. Selection of scales and window overlap
+By looking at the provided sample images, we can make inference on relative car sizes and locations. Taking image patterns into consideration (assuming that the camera positioning and road height are constant), I used the following parameters:
+* box sizes: (64, 64), (80, 80), (96, 96), (112, 112)
+* overlap: (0.3, 0)
 
 ![alt text][image11]
 
 #### 2. Pipeline and classifier optimization
+The overall vehicle detection pipeline is as follows:
+* sliding window search and svm classification of HOG features
+* heatmap to highlight likeliest candidates
+* threshold to eliminate false positives
+* labels to identify object shapes
+* boxes appended to original image
 
 ![alt text][image12]
 ![alt text][image13]
