@@ -112,14 +112,15 @@ The `add_heat` function takes each of the boxes (classified as *cars* by the `fi
 ![alt text][image13]
 
 To reduce the number false positives, the `apply_threshold` function reducts the intensity of classified cars. This effectively eliminates misclassified objects.
+After removing false positives, the use of the `labels` function (part of the `scipy` library) allows us to isolate the object boxes to redraw onto the raw image.
 
 ![alt text][image14]
 
-After removing false positives, the use of the `labels` function (part of the `scipy` library) allows us to isolate the object boxes to redraw onto the raw image.
+Finally, we can examine the pipeline results on the original image. 
 
 ![alt text][image15]
 
-Finally, we can examine the pipeline results on the original image. 
+The following is the pipeline shown on each test image.
 
 ![alt text][image16]
 
@@ -127,12 +128,14 @@ Finally, we can examine the pipeline results on the original image.
 ### Video Implementation
 
 #### 1. Final video output
+After refining the pipeline on the images, we can now try on video.
+[Sample video](https://github.com/liangk7/CarND-Term1-Project5/blob/master/output_videos/test_video_out.mp4)
 
-![alt text][image]
+[Full video](https://github.com/liangk7/CarND-Term1-Project5/blob/master/output_videos/project_video_out.mp4)
+
 
 #### 2. Filtering out false positives and combining overlapping boxes
 
-![alt text][image]
 
 
 ---
