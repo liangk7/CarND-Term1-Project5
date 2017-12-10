@@ -95,6 +95,7 @@ By looking at the provided sample images, we can make inference on relative car 
 
 ![alt text][image11]
 
+
 #### 2. Pipeline and classifier optimization
 The overall vehicle detection pipeline is as follows:
 * sliding window search and svm classification of HOG features
@@ -129,13 +130,17 @@ The following is the pipeline shown on each test image.
 
 #### 1. Final video output
 After refining the pipeline on the images, we can now try on video.
+
 [Sample video](https://github.com/liangk7/CarND-Term1-Project5/blob/master/output_videos/test_video_out.mp4)
 
 [Full video](https://github.com/liangk7/CarND-Term1-Project5/blob/master/output_videos/project_video_out.mp4)
 
 
 #### 2. Filtering out false positives and combining overlapping boxes
-
+By observing the full pipline on each of the sample images, we can play around with sliding window box options and HOG feature parameters. The provided image is a result of tweaking such parameters:
+* `pix_per_cell`
+* `cell_per_block`
+* boxes: width, height and overlap
 
 
 ---
@@ -143,7 +148,10 @@ After refining the pipeline on the images, we can now try on video.
 ### Discussion
 
 #### 1. Implementation problems and pipeline shortcomings
-
+Whilst developing the pipeline, I did not come across difficulties with the model properly classifying cars. But it did, however, seem to misclassify false positives along the left railing of the highway divider. 
+In an attempt to resolve this, I made a variant for `apply_threshold` that utilized the `label` function to eliminate false positives based on the max heat intensity of a *car* (assuming the max value of `label` result is a car). I soon found that this produced inconsistent results, so I abandoned that attempt.
+Alternatively, I postulated that proper definition of the search boxes could reduce the likelihood of misclassification (based on the variation in sizes amongst overlapping boxes). By minimizing the overlap of the same box size, it seemed likely that misclassifications were less likely to propagate through the thresholding component of the pipeline. However, this has yet to be finalized.
 
 #### 2. Future implementation and insights
-
+From the learning content and implementation approaches explored in this project, it is clear that the exploration of various image processing techniques can lead to simple and intuitive solutions. However, it is also clear that the scope of this video approach has limitations in defining and predicting the environment.
+By utilizing a single camera and its images, we cannot reliably determine the spatial contours and proximity of objects in the image view in a manner that a human interpreter can (using past experience and additional sensory input). 
