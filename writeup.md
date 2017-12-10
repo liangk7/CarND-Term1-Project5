@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 [image1]: ./output_images/fig1_classData.png "Dataset"
 [image2]: ./output_images/fig2.1_HOG.png "HOG"
 [image3]: ./output_images/fig2.2-1_HOGsample.png "HOG, cspace sample"
-[image4]: ./output_images/fig2.2-1_HOGcspace.png "HOG, cspace variation"
+[image4]: ./output_images/fig2.2-2_HOGcspace.png "HOG, cspace variation"
 [image5]: ./output_images/fig2.3-1_HOGsample.png "HOG, orient sample"
 [image6]: ./output_images/fig2.3-2_HOGorient.png "HOG, orient variation"
 [image7]: ./output_images/fig2.4-1_HOGsample.png "HOG, pix per cell sample"
